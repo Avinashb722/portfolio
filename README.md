@@ -2,15 +2,15 @@
 
 A C-based autonomous robot that follows lines and avoids obstacles using IR sensors and ultrasonic detection.
 
-> **Note**: Add your robot images to the `images/` folder to display them here.
-
 ## Demo Video
 
 *Upload your demo video to YouTube and replace VIDEO_ID with your actual video ID*
 
 ## Gallery
 
-*Add robot photos to show your build*
+<div align="center">
+  <img src="images/robot_front.jpg" alt="Line Following Robot" width="400"/>
+</div>
 
 ## Features
 
