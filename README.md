@@ -1,19 +1,16 @@
 # Line Following Robot with Obstacle Avoidance
 
-![Robot Demo](images/robot_demo.gif)
-
 A C-based autonomous robot that follows lines and avoids obstacles using IR sensors and ultrasonic detection.
+
+> **Note**: Add your robot images to the `images/` folder to display them here.
 
 ## Demo Video
 
-[![Watch Demo](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
+*Upload your demo video to YouTube and replace VIDEO_ID with your actual video ID*
 
 ## Gallery
 
-<div align="center">
-  <img src="images/robot_front.jpg" alt="Robot Front View" width="300"/>
-  <img src="images/robot_circuit.jpg" alt="Circuit Diagram" width="300"/>
-</div>
+*Add robot photos to show your build*
 
 ## Features
 
@@ -40,7 +37,7 @@ A C-based autonomous robot that follows lines and avoids obstacles using IR sens
 
 ## Circuit Diagram
 
-![Circuit Diagram](images/circuit_diagram.png)
+*Add circuit diagram image to show wiring connections*
 
 ## Quick Start
 
@@ -51,7 +48,10 @@ A C-based autonomous robot that follows lines and avoids obstacles using IR sens
 
 ## How It Works
 
-![Line Following Logic](images/line_following_logic.png)
+The robot uses a priority-based decision system:
+1. **Obstacle Detection**: Ultrasonic sensor checks for obstacles first
+2. **Line Following**: IR sensors detect line position and adjust motors
+3. **Navigation Logic**: Forward, left turn, right turn, or stop based on sensor input
 
 ## License
 
