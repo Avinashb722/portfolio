@@ -1,0 +1,18 @@
+# Compiled files
+*.o
+*.exe
+*.out
+*.hex
+*.elf
+
+# IDE files
+.vscode/
+*.code-workspace
+
+# Build directories
+build/
+bin/
+
+# OS files
+.DS_Store
+Thumbs.db
