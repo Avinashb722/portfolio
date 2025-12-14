@@ -997,12 +997,12 @@
         }
 
         .project-link.secondary {
-            background: var(--gray-100);
-            color: var(--gray-700);
+            background: var(--primary);
+            color: white;
         }
 
         .project-link.secondary:hover {
-            background: var(--gray-200);
+            background: #1d4ed8;
             transform: translateY(-2px);
         }
 
@@ -1055,6 +1055,112 @@
         .interest-card p {
             color: var(--gray-600);
             line-height: 1.6;
+        }
+
+        /* Certificates Section */
+        .certificates {
+            background: white;
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .certificate-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+            height: 550px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .certificate-image {
+            height: 350px;
+            background: white;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate-image:not(:has(img)) {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .certificate-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .certificate-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .project-image img {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .project-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .cert-icon {
+            color: white;
+            font-size: 3rem;
+        }
+
+        .certificate-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .certificate-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .certificate-description {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .certificate-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .cert-tag {
+            background: var(--gray-100);
+            color: var(--gray-700);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
         }
 
         /* Contact Section */
@@ -1306,14 +1412,14 @@
         .modal-content {
             margin: auto;
             display: block;
-            width: 400px;
-            height: 400px;
+            max-width: 90%;
+            max-height: 90%;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            border-radius: 50%;
-            object-fit: cover;
+            border-radius: 1rem;
+            object-fit: contain;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
 
@@ -1412,6 +1518,7 @@
                 <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#certificates" class="nav-link">Certificates</a></li>
                 <li><a href="#interests" class="nav-link">Interests</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -1440,7 +1547,7 @@
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-number">5+</span>
+                        <span class="stat-number">6+</span>
                         <span class="stat-label">Projects</span>
                     </div>
                     <div class="stat">
@@ -1749,7 +1856,7 @@
             <div class="projects-grid">
                 <div class="project-card animate-on-scroll">
                     <div class="project-image">
-                        <img src="images/vty.png" alt="VTUCRACK Education Portal" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="images/vty.png" alt="VTUCRACK Education Portal" style="width: 100%; height: 100%; object-fit: cover;" onclick="openImageModal('images/vty.png')">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">VTUCRACK Education Portal</h3>
@@ -1770,7 +1877,7 @@
                 </div>
                 <div class="project-card animate-on-scroll">
                     <div class="project-image">
-                        <img src="images/jarvis.png" alt="IRIS AI Assistant" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="images/jarvis.png" alt="IRIS AI Assistant" style="width: 100%; height: 100%; object-fit: cover;" onclick="openImageModal('images/jarvis.png')">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">IRIS AI Assistant</h3>
@@ -1782,7 +1889,11 @@
                             <span class="tech-tag">OpenAI</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Avinashb722/jarvis-ai-assistant" class="project-link primary" target="_blank">
+                            <a href="https://iris-ai-assistant-yjnq.vercel.app/" class="project-link primary" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                            <a href="https://github.com/Avinashb722/jarvis-ai-assistant" class="project-link secondary" target="_blank">
                                 <i class="fab fa-github"></i>
                                 View Code
                             </a>
@@ -1791,7 +1902,7 @@
                 </div>
                 <div class="project-card animate-on-scroll">
                     <div class="project-image">
-                        <img src="images/suraksha.png" alt="Suraksha Safety Platform" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="images/suraksha.png" alt="Suraksha Safety Platform" style="width: 100%; height: 100%; object-fit: cover;" onclick="openImageModal('images/suraksha.png')">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Suraksha Safety Platform</h3>
@@ -1812,7 +1923,7 @@
                 </div>
                 <div class="project-card animate-on-scroll">
                     <div class="project-image">
-                        <img src="images/chat clone.png" alt="AI ChatGPT Clone" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="images/chat clone.png" alt="AI ChatGPT Clone" style="width: 100%; height: 100%; object-fit: cover;" onclick="openImageModal('images/chat clone.png')">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">AI ChatGPT Clone</h3>
@@ -1833,7 +1944,32 @@
                 </div>
                 <div class="project-card animate-on-scroll">
                     <div class="project-image">
-                        <img src="images/line folling.jpg" alt="Autonomous Line Robot" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="images/mobile jarvis.jpg" alt="Mobile Jarvis Assistant" style="width: 100%; height: 100%; object-fit: cover;" onclick="openImageModal('images/mobile jarvis.jpg')">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Mobile Jarvis Assistant</h3>
+                        <p class="project-description">Advanced mobile AI assistant with intelligent conversational capabilities and remote desktop control functionality, enabling seamless device management from anywhere.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Kotlin</span>
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">AI/ML</span>
+                            <span class="tech-tag">Remote Control</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://iris-ai-assistant-yjnq.vercel.app/" class="project-link primary" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                            <a href="https://github.com/Avinashb722/Jarvis-Mobile-Assistant.git" class="project-link secondary" target="_blank">
+                                <i class="fab fa-github"></i>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll">
+                    <div class="project-image">
+                        <img src="images/line folling.jpg" alt="Autonomous Line Robot" style="width: 100%; height: 100%; object-fit: cover;" onclick="openImageModal('images/line folling.jpg')">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Autonomous Line Robot</h3>
@@ -1849,6 +1985,91 @@
                                 <i class="fab fa-github"></i>
                                 View Code
                             </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="section certificates">
+        <div class="container">
+            <div class="section-header animate-on-scroll fade-in">
+                <div class="section-badge">Achievements</div>
+                <h2 class="section-title">Certificates & Awards</h2>
+                <p class="section-description">Recognition of technical excellence, innovation, and continuous learning in various domains.</p>
+            </div>
+            <div class="certificates-grid">
+                <div class="certificate-card animate-on-scroll">
+                    <div class="certificate-image">
+                        <img src="images/cirtificate/project exibution.jpg" alt="Capstone Project Exhibition 2nd Prize" style="width: 100%; height: 200px; object-fit: cover; filter: blur(8px);" onclick="openImageModal('images/cirtificate/project exibution.jpg')">
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">2nd Prize - Capstone Project Exhibition 2025</h3>
+                        <p class="certificate-description">Secured 2nd Prize at AITM Belagavi for IRES Desktop Assistant project. Evaluated by industry experts for innovation, technical implementation, and real-world applicability in AI-driven productivity solutions.</p>
+                        <div class="certificate-tags">
+                            <span class="cert-tag">AI Development</span>
+                            <span class="cert-tag">Innovation</span>
+                            <span class="cert-tag">Team Project</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificate-card animate-on-scroll">
+                    <div class="certificate-image">
+                        <img src="images/cirtificate/hac gogte.png" alt="Hack to Future 2025" style="width: 100%; height: 200px; object-fit: cover;" onclick="openImageModal('images/cirtificate/hac gogte.png')">
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Hack to Future 2025</h3>
+                        <p class="certificate-description">Participated in technical hackathon organized by KLS Gogte Institute of Technology with CodeChef and TCS support. Developed innovative technology solutions under time constraints, enhancing coding and teamwork skills through collaborative problem-solving.</p>
+                        <div class="certificate-tags">
+                            <span class="cert-tag">Hackathon</span>
+                            <span class="cert-tag">Problem Solving</span>
+                            <span class="cert-tag">CodeChef</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificate-card animate-on-scroll">
+                    <div class="certificate-image">
+                        <img src="images/cirtificate/hc vijayapyr .jpg" alt="HackVyuha 2025" style="width: 100%; height: 200px; object-fit: cover;" onclick="openImageModal('images/cirtificate/hc vijayapyr .jpg')">
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">HackVyuha 2025</h3>
+                        <p class="certificate-description">Participated in national-level hackathon organized by BLDE Association and Shri B. M. Patil Foundation. Focused on creativity, collaboration, and future-ready technological innovation in competitive environment, developing solutions with emphasis on practical implementation.</p>
+                        <div class="certificate-tags">
+                            <span class="cert-tag">National Level</span>
+                            <span class="cert-tag">Innovation</span>
+                            <span class="cert-tag">Technology</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificate-card animate-on-scroll">
+                    <div class="certificate-image">
+                        <img src="images/cirtificate/octanet intrenship.png" alt="Octanet Internship" style="width: 100%; height: 200px; object-fit: cover;" onclick="openImageModal('images/cirtificate/octanet intrenship.png')">
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Web Development Internship</h3>
+                        <p class="certificate-description">Successfully completed one-month Web Development Internship at Octanet Services Pvt. Ltd. from July 2024. Demonstrated strong dedication, enthusiasm, and willingness to learn while contributing to assigned responsibilities with high professionalism.</p>
+                        <div class="certificate-tags">
+                            <span class="cert-tag">Internship</span>
+                            <span class="cert-tag">Web Development</span>
+                            <span class="cert-tag">Professional</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificate-card animate-on-scroll">
+                    <div class="certificate-image">
+                        <img src="images/cirtificate/latex.png" alt="Spoken Tutorial Training - IIT Bombay" style="width: 100%; height: 200px; object-fit: cover;" onclick="openImageModal('images/cirtificate/latex.png')">
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Spoken Tutorial Training - IIT Bombay</h3>
+                        <p class="certificate-description">Successfully completed Spoken Tutorial training programs conducted by IIT Bombay in HTML, JavaScript, Python 3.4.3, and LaTeX. Strengthened foundations in programming and technical documentation through structured hands-on learning.</p>
+                        <div class="certificate-tags">
+                            <span class="cert-tag">IIT Bombay</span>
+                            <span class="cert-tag">HTML</span>
+                            <span class="cert-tag">JavaScript</span>
+                            <span class="cert-tag">Python</span>
+                            <span class="cert-tag">LaTeX</span>
                         </div>
                     </div>
                 </div>
@@ -2018,6 +2239,7 @@
                         <li><a href="#education">Education</a></li>
                         <li><a href="#skills">Skills</a></li>
                         <li><a href="#projects">Projects</a></li>
+                        <li><a href="#certificates">Certificates</a></li>
                         <li><a href="#interests">Interests</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -2050,6 +2272,19 @@
         function openModal() {
             document.getElementById('imageModal').style.display = 'block';
             document.getElementById('modalImg').src = 'images/about.png';
+        }
+
+        function openImageModal(imageSrc) {
+            document.getElementById('imageModal').style.display = 'block';
+            const modalImg = document.getElementById('modalImg');
+            modalImg.src = imageSrc;
+            
+            // Apply blur to project exhibition certificate in modal too
+            if (imageSrc.includes('project exibution.jpg')) {
+                modalImg.style.filter = 'blur(8px)';
+            } else {
+                modalImg.style.filter = 'none';
+            }
         }
 
         function closeModal() {
@@ -2121,7 +2356,7 @@
             }
 
             // Update active navigation link
-            const sections = ['home', 'about', 'education', 'skills', 'projects', 'interests', 'contact'];
+            const sections = ['home', 'about', 'education', 'skills', 'projects', 'certificates', 'interests', 'contact'];
             const navLinks = document.querySelectorAll('.nav-link');
             
             let current = '';
